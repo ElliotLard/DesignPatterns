@@ -1,8 +1,10 @@
+// Author: Aaron Gerber
+
 package Weapon;
 
 public class PlasmaCannon extends GenericWeapon
 {
-	public PlasmaCannon(int d, int r, int rof, int a)
+	public PlasmaCannon()
 	{
 		super(50, 20, 1, 4);
 	}
