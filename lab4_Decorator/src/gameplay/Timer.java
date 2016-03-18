@@ -6,8 +6,11 @@
 
 package gameplay;
 
-public interface Timer {
+public interface Timer
+{
 	void addTimeObserver(TimeObserver observer);
+
 	void removeTimeObserver(TimeObserver observer);
+
 	void timeChanged();
 }

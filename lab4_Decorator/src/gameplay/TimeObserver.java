@@ -6,6 +6,7 @@
 
 package gameplay;
 
-public interface TimeObserver {
+public interface TimeObserver
+{
 	void updateTime(int time);
 }

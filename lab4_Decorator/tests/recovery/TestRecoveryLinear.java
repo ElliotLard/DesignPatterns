@@ -10,16 +10,16 @@ public class TestRecoveryLinear
 	 * LAB2 TESTS
 	 */
 	@Test
-	public void testRecoverFullHealth()//	already full health
+	public void testRecoverFullHealth()// already full health
 	{
 		RecoveryBehavior rLinear = new RecoverLinear(3);
 		int maxLifePts = 30;
 		int result = rLinear.calculateRecovery(maxLifePts, maxLifePts);
 		assertEquals(maxLifePts, result);
 	}
-	
+
 	@Test
-	public void testHurtsAlot()//			recovers the right amount
+	public void testHurtsAlot()// recovers the right amount
 	{
 		RecoveryBehavior rLinear = new RecoverLinear(3);
 		int maxLifePts = 30;
@@ -27,9 +27,9 @@ public class TestRecoveryLinear
 		int result = rLinear.calculateRecovery(currentLifePts, maxLifePts);
 		assertEquals(currentLifePts + 3, result);
 	}
-	
+
 	@Test
-	public void testHurtsALittle()//		doesn't recover too much
+	public void testHurtsALittle()// doesn't recover too much
 	{
 		RecoveryBehavior rLinear = new RecoverLinear(3);
 		int maxLifePts = 30;
@@ -37,9 +37,9 @@ public class TestRecoveryLinear
 		int result = rLinear.calculateRecovery(currentLifePts, maxLifePts);
 		assertEquals(maxLifePts, result);
 	}
-	
+
 	@Test
-	public void testNoRes()//				doesn't revive
+	public void testNoRes()// doesn't revive
 	{
 		RecoveryBehavior rLinear = new RecoverLinear(3);
 		int maxLifePts = 30;
@@ -47,9 +47,9 @@ public class TestRecoveryLinear
 		int result = rLinear.calculateRecovery(currentLifePts, maxLifePts);
 		assertEquals(currentLifePts, result);
 	}
-	
+
 	@Test
-	public void testPointless()//			goldilox
+	public void testPointless()// goldilox
 	{
 		RecoveryBehavior rLinear = new RecoverLinear(3);
 		int maxLifePts = 30;
@@ -57,6 +57,5 @@ public class TestRecoveryLinear
 		int result = rLinear.calculateRecovery(currentLifePts, maxLifePts);
 		assertEquals(maxLifePts, result);
 	}
-	
 
 }

@@ -14,10 +14,12 @@ public class TestAlien
 {
 	/**
 	 * LAB2 TESTS
-	 * @throws ExceptionNegative 
+	 * 
+	 * @throws ExceptionNegative
 	 */
 	@Test
-	public void testConstruction() throws ExceptionNegative// constructs with name and hp
+	public void testConstruction() throws ExceptionNegative// constructs with
+															// name and hp
 	{
 		Alien zorg = new Alien("Zorg", 30);
 		assertEquals(zorg.getName(), "Zorg");
@@ -25,7 +27,8 @@ public class TestAlien
 	}
 
 	@Test
-	public void testRecoverLinear() throws ExceptionNegative// recoverLinear works correctly
+	public void testRecoverLinear() throws ExceptionNegative// recoverLinear
+															// works correctly
 	{
 		RecoveryBehavior rb = new RecoverLinear(5);
 		Alien zorg = new Alien("Zorg", 30, rb);
@@ -46,7 +49,8 @@ public class TestAlien
 
 	/**
 	 * LAB3 TESTS
-	 * @throws ExceptionNegative 
+	 * 
+	 * @throws ExceptionNegative
 	 */
 	@Test // attackStrength should default to 10 for aliens
 	public void testAlienAttacks() throws ExceptionNegative
@@ -70,7 +74,7 @@ public class TestAlien
 		assertEquals(3, zorg.getRecoverRate());// recoverRate successfully
 												// changed to 3
 	}
-	
+
 	@Test // recovers health on even numbered rounds when the recoveryRate is 2
 	public void testRecoverRate() throws ExceptionNegative
 	{
@@ -78,13 +82,13 @@ public class TestAlien
 		SimpleTimer t = new SimpleTimer(1000);
 		t.addTimeObserver(zorg);
 		zorg.takeHit(15);
-		assertEquals(15, zorg.getLifePoints());//takes 15 damage
+		assertEquals(15, zorg.getLifePoints());// takes 15 damage
 		t.timeChanged();
-		assertEquals(15, zorg.getLifePoints());//hasn't healed yet
+		assertEquals(15, zorg.getLifePoints());// hasn't healed yet
 		t.timeChanged();
-		assertEquals(25, zorg.getLifePoints());//recovers 10 health	
+		assertEquals(25, zorg.getLifePoints());// recovers 10 health
 	}
-	
+
 	@Test // recovers health on even numbered rounds when the recoveryRate is 2
 	public void testRecoverRateNot2() throws ExceptionNegative
 	{
@@ -92,15 +96,15 @@ public class TestAlien
 		SimpleTimer t = new SimpleTimer(1000);
 		t.addTimeObserver(zorg);
 		zorg.takeHit(15);
-		assertEquals(15, zorg.getLifePoints());//takes 15 damage
+		assertEquals(15, zorg.getLifePoints());// takes 15 damage
 		t.timeChanged();
-		assertEquals(15, zorg.getLifePoints());//hasn't healed yet
+		assertEquals(15, zorg.getLifePoints());// hasn't healed yet
 		t.timeChanged();
-		assertEquals(15, zorg.getLifePoints());//still hasn't healed
+		assertEquals(15, zorg.getLifePoints());// still hasn't healed
 		t.timeChanged();
-		assertEquals(25, zorg.getLifePoints());//heals now
+		assertEquals(25, zorg.getLifePoints());// heals now
 	}
-	
+
 	@Test // Doesn't recover when recoveryRate is 0
 	public void testRecoverRateZero() throws ExceptionNegative
 	{
@@ -108,12 +112,12 @@ public class TestAlien
 		SimpleTimer t = new SimpleTimer(1000);
 		t.addTimeObserver(zorg);
 		zorg.takeHit(15);
-		assertEquals(15, zorg.getLifePoints());//takes 15 damage
+		assertEquals(15, zorg.getLifePoints());// takes 15 damage
 		t.timeChanged();
-		assertEquals(15, zorg.getLifePoints());//doesnt heal
-		
+		assertEquals(15, zorg.getLifePoints());// doesnt heal
+
 	}
-	
+
 	@Test // doesn't recover when removed from t
 	public void testRemoveObserver() throws ExceptionNegative
 	{
@@ -121,12 +125,12 @@ public class TestAlien
 		SimpleTimer t = new SimpleTimer(1000);
 		t.addTimeObserver(zorg);
 		zorg.takeHit(15);
-		assertEquals(15, zorg.getLifePoints());//takes 15 damage
+		assertEquals(15, zorg.getLifePoints());// takes 15 damage
 		t.timeChanged();
-		assertEquals(25, zorg.getLifePoints());//heals for 10
+		assertEquals(25, zorg.getLifePoints());// heals for 10
 		t.removeTimeObserver(zorg);
 		t.timeChanged();
 		assertEquals(25, zorg.getLifePoints());// doesn't heal
-		
+
 	}
 }

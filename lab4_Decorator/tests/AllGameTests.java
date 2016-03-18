@@ -26,7 +26,8 @@ import recovery.TestRecoveryNone;
 @RunWith(Suite.class)
 @Suite.SuiteClasses(
 { TestLifeForm.class, TestCell.class, TestEnvironment.class, TestHuman.class, TestRecoveryNone.class,
-		TestRecoveryLinear.class, TestAlien.class, TestSimpleTimer.class, TestChainGun.class, TestStabilizer.class, TestWeapon.class})
+		TestRecoveryLinear.class, TestAlien.class, TestSimpleTimer.class, TestChainGun.class, TestStabilizer.class,
+		TestWeapon.class })
 
 public class AllGameTests
 {

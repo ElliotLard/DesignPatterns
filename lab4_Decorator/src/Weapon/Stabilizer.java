@@ -4,12 +4,14 @@
  */
 package Weapon;
 
-public class Stabilizer extends Attachment {
+public class Stabilizer extends Attachment
+{
 
 	/**
 	 * @param baseWeapon
 	 */
-	public Stabilizer(GenericWeapon w) {
+	public Stabilizer(GenericWeapon w)
+	{
 		super(w);
 	}
 
@@ -19,8 +21,9 @@ public class Stabilizer extends Attachment {
 	 * @return damage
 	 * @param distance
 	 */
-	public int calculateDamage(int distance) { // increases damage by 25%
-												// rounding down
+	public int calculateDamage(int distance)
+	{ // increases damage by 25%
+		// rounding down
 		return base.calculateDamage(distance) + (int) ((double) base.calculateDamage(distance) * .25);
 	}
 
@@ -33,7 +36,8 @@ public class Stabilizer extends Attachment {
 									// firing
 	// that shot
 	{
-		if (ammo == 1) {
+		if (ammo == 1)
+		{
 			reload();
 			ammo++; // since the reloading should actually be happening after
 					// the shot

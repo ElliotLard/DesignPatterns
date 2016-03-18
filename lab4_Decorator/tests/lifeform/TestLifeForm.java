@@ -11,14 +11,15 @@ import Weapon.ChainGun;
 import Weapon.GenericWeapon;
 import environment.Range;
 
-public class TestLifeForm {
-	
+public class TestLifeForm
+{
+
 	/**
-	 * LAB4 TESTS
-	 * author Elliot Lard
+	 * LAB4 TESTS author Elliot Lard
 	 */
 	@Test
-	public void testWeaponHandling() {
+	public void testWeaponHandling()
+	{
 		MockLifeForm entity;
 		entity = new MockLifeForm("Bob", 40);
 		GenericWeapon gun = new ChainGun();
@@ -28,17 +29,19 @@ public class TestLifeForm {
 		assertEquals(gun, entity.getWeapon()); // successfully picked up the gun
 		entity.pickup(gun2);
 		assertEquals(gun, entity.getWeapon()); // can't pickup another gun
-		
+
 		entity.attack(new MockLifeForm("Fred", 40), 10);
-		assertEquals(gun.getMaxAmmo()-1, gun.getAmmo()); // one fewer ammo
+		assertEquals(gun.getMaxAmmo() - 1, gun.getAmmo()); // one fewer ammo
 		entity.reload();
-		assertEquals(gun.getMaxAmmo(), gun.getAmmo()); // now has full ammo after reloading
+		assertEquals(gun.getMaxAmmo(), gun.getAmmo()); // now has full ammo
+														// after reloading
 		entity.dropGun();
 		assertEquals(null, entity.getWeapon()); // dropped gun
 	}
 
 	@Test
-	public void testAttackHandling() {
+	public void testAttackHandling()
+	{
 
 		MockLifeForm entity;
 		entity = new MockLifeForm("Bob", 40);
@@ -51,7 +54,8 @@ public class TestLifeForm {
 
 		// correctly took damage from the gun.
 		assertEquals(victim.getMaxLifePoints() - range1Damage, victim.getLifePoints());
-		for (int x = 0; x < 39; x++) {
+		for (int x = 0; x < 39; x++)
+		{
 			entity.attack(victim, Range.distance2);
 		}
 
@@ -60,12 +64,12 @@ public class TestLifeForm {
 		assertEquals(victim.getMaxLifePoints() - range1Damage, victim.getLifePoints());
 
 		entity.attack(victim, Range.distance3);
-		
+
 		// same life as before because ammo is empty and range is too far for a
 		// basic attack
 		assertEquals(victim.getMaxLifePoints() - range1Damage, victim.getLifePoints());
 		entity.attack(victim, Range.distance1);
-		
+
 		// health is now reduced by the attackStrength of entity because ammo
 		// was out of ammo but was within basic attack range
 		assertEquals(victim.getMaxLifePoints() - (range1Damage + entity.getAttackStrength()), victim.getLifePoints());
@@ -103,7 +107,8 @@ public class TestLifeForm {
 	 */
 
 	@Test
-	public void testSetAndGetAttackStrength() {
+	public void testSetAndGetAttackStrength()
+	{
 		MockLifeForm entity;
 		entity = new MockLifeForm("Bob", 40, 20);
 		assertEquals(20, entity.getAttackStrength()); // getAttackStrength works

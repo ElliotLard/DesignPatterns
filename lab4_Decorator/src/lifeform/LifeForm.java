@@ -10,7 +10,8 @@ import gameplay.TimeObserver;
  * 
  *         Holds the name and current health of a lifeForm
  */
-public abstract class LifeForm implements TimeObserver {
+public abstract class LifeForm implements TimeObserver
+{
 	String myName;
 	int currentLP;
 	int maxLP;
@@ -23,7 +24,8 @@ public abstract class LifeForm implements TimeObserver {
 	 * @param name
 	 * @param points
 	 */
-	public LifeForm(String name, int points, int ad) {
+	public LifeForm(String name, int points, int ad)
+	{
 		myName = name;
 		maxLP = points;
 		currentLP = maxLP;
@@ -35,7 +37,8 @@ public abstract class LifeForm implements TimeObserver {
 	 * 
 	 * @return
 	 */
-	public String getName() {
+	public String getName()
+	{
 		return myName;
 	}
 
@@ -44,7 +47,8 @@ public abstract class LifeForm implements TimeObserver {
 	 * 
 	 * @return
 	 */
-	public int getLifePoints() {
+	public int getLifePoints()
+	{
 		return currentLP;
 	}
 
@@ -53,7 +57,8 @@ public abstract class LifeForm implements TimeObserver {
 	 * 
 	 * @return
 	 */
-	public int getMaxLifePoints() {
+	public int getMaxLifePoints()
+	{
 		return maxLP;
 	}
 
@@ -62,7 +67,8 @@ public abstract class LifeForm implements TimeObserver {
 	 * 
 	 * @return
 	 */
-	public int getAttackStrength() {
+	public int getAttackStrength()
+	{
 		return attackStrength;
 	}
 
@@ -71,9 +77,11 @@ public abstract class LifeForm implements TimeObserver {
 	 * 
 	 * @param damage
 	 */
-	public void takeHit(int damage) {
+	public void takeHit(int damage)
+	{
 		currentLP -= damage;
-		if (currentLP < 0) {
+		if (currentLP < 0)
+		{
 			currentLP = 0;
 		}
 	}
@@ -84,7 +92,8 @@ public abstract class LifeForm implements TimeObserver {
 	 * @param lifeForm
 	 *            to be attacked
 	 */
-	public void attack(LifeForm victim) {
+	public void attack(LifeForm victim)
+	{
 		if (currentLP > 0)
 			victim.takeHit(attackStrength);
 	}
@@ -99,11 +108,13 @@ public abstract class LifeForm implements TimeObserver {
 	 * @param distance
 	 *            the distance to be passed into calculate distance
 	 */
-	public void attack(LifeForm victim, int distance) {
+	public void attack(LifeForm victim, int distance)
+	{
 		if (currentLP == 0)
 			return;
 
-		if (!(weapon.equals(null)) && weapon.getAmmo() > 0) {
+		if (!(weapon.equals(null)) && weapon.getAmmo() > 0)
+		{
 			victim.takeHit(weapon.shoot(distance));
 		} else if (distance <= 5)
 			victim.takeHit(attackStrength);
@@ -113,33 +124,37 @@ public abstract class LifeForm implements TimeObserver {
 	 * makes gun the equipped weapon if none is equipped
 	 * 
 	 * @param gun
-	 * 		weapon to be equipped
+	 *            weapon to be equipped
 	 */
-	public void pickup(GenericWeapon gun) {
+	public void pickup(GenericWeapon gun)
+	{
 		if (weapon == null)
 			weapon = gun;
 	}
-	
+
 	/**
 	 * returns the current weapon equipped;
 	 * 
 	 * @return weapon
 	 */
-	public GenericWeapon getWeapon() {
+	public GenericWeapon getWeapon()
+	{
 		return weapon;
 	}
 
 	/**
 	 * drops the current weapon, making the value null;
 	 */
-	public void dropGun() {
+	public void dropGun()
+	{
 		weapon = null;
 	}
 
 	/**
 	 * calls the weapons reload() method.
 	 */
-	public void reload() {
+	public void reload()
+	{
 		weapon.reload();
 	}
 

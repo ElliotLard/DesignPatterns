@@ -4,10 +4,12 @@
  */
 package Weapon;
 
-public class ChainGun extends GenericWeapon {
+public class ChainGun extends GenericWeapon
+{
 	private static final int BASEDAMAGE = 15, RANGE = 30, RATEOFFIRE = 4, MAXAMMO = 40;
 
-	public ChainGun() {
+	public ChainGun()
+	{
 		super(BASEDAMAGE, RANGE, RATEOFFIRE, MAXAMMO);
 	}
 
@@ -19,7 +21,8 @@ public class ChainGun extends GenericWeapon {
 	 * @param distance
 	 * @return damage
 	 */
-	public int calculateDamage(int distance) {
+	public int calculateDamage(int distance)
+	{
 		int damage;
 		if (distance > this.getRange())
 			return 0;
