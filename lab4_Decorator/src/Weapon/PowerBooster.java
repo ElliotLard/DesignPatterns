@@ -10,7 +10,9 @@ public class PowerBooster extends Attachment
 		super(w);
 	}
 
-	public int calculateDamage(int distance) {
-		return (int)((1+((double)base.getAmmo()/(double)base.getMaxAmmo())) * base.calculateDamage(distance));
+	public int calculateDamage(int distance) 
+	{
+		double dam = (1+((double)base.getAmmo()/(double)base.getMaxAmmo()));
+		return (int)(dam*base.calculateDamage(distance));
 	}
 }
