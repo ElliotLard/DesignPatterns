@@ -9,7 +9,10 @@ import lifeform.Alien;
 
 public class TestWeapon
 {
-
+	/**
+	 * LAB4 TESTS
+	 * author Elliot Lard
+	 */
 	@Test
 	public void test() throws ExceptionNegative
 	{

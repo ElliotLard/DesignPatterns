@@ -1,3 +1,7 @@
+/**
+ * @author elliotlard
+ *         Abstact class for decorations to GenericWeapon
+ */
 package Weapon;
 
 public abstract class Attachment extends GenericWeapon{

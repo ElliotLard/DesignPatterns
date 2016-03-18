@@ -12,54 +12,68 @@ import Weapon.GenericWeapon;
 import environment.Range;
 
 public class TestLifeForm {
+	
 	/**
 	 * LAB4 TESTS
+	 * author Elliot Lard
 	 */
 	@Test
-	public void testWeapon()// constructor works properly
-	{
+	public void testWeaponHandling() {
+		MockLifeForm entity;
+		entity = new MockLifeForm("Bob", 40);
+		GenericWeapon gun = new ChainGun();
+		GenericWeapon gun2 = new ChainGun();
+
+		entity.pickup(gun);
+		assertEquals(gun, entity.getWeapon()); // successfully picked up the gun
+		entity.pickup(gun2);
+		assertEquals(gun, entity.getWeapon()); // can't pickup another gun
 		
+		entity.attack(new MockLifeForm("Fred", 40), 10);
+		assertEquals(gun.getMaxAmmo()-1, gun.getAmmo()); // one fewer ammo
+		entity.reload();
+		assertEquals(gun.getMaxAmmo(), gun.getAmmo()); // now has full ammo after reloading
+		entity.dropGun();
+		assertEquals(null, entity.getWeapon()); // dropped gun
+	}
+
+	@Test
+	public void testAttackHandling() {
+
 		MockLifeForm entity;
 		entity = new MockLifeForm("Bob", 40);
 		MockLifeForm victim = new MockLifeForm("Fred", 40);
 		GenericWeapon gun = new ChainGun();
-		GenericWeapon gun2 = new ChainGun();
 		int range1Damage = gun.calculateDamage(Range.distance1);
-		int range2Damage = gun.calculateDamage(Range.distance2);
-		int range3Damage = gun.calculateDamage(Range.distance3);
 		entity.pickup(gun);
-		assertEquals(gun, entity.getWeapon()); // successfully picked up the gun
+
 		entity.attack(victim, Range.distance1);
 
 		// correctly took damage from the gun.
 		assertEquals(victim.getMaxLifePoints() - range1Damage, victim.getLifePoints());
-		for (int x = 0; x < 39; x++) 
-		{
+		for (int x = 0; x < 39; x++) {
 			entity.attack(victim, Range.distance2);
 		}
-		
+
 		// has same amount of health as before because victim was out of range
 		// ammo should now be at 0
 		assertEquals(victim.getMaxLifePoints() - range1Damage, victim.getLifePoints());
+
 		entity.attack(victim, Range.distance3);
+		
 		// same life as before because ammo is empty and range is too far for a
 		// basic attack
 		assertEquals(victim.getMaxLifePoints() - range1Damage, victim.getLifePoints());
 		entity.attack(victim, Range.distance1);
+		
 		// health is now reduced by the attackStrength of entity because ammo
-		// was out but was within basic attack range
-		assertEquals(victim.getMaxLifePoints() - (range1Damage + entity.getAttackStrength()),
-				victim.getLifePoints());
-
-		entity.pickup(gun2);
-		assertEquals(gun, entity.getWeapon()); // still has gun
-		entity.dropGun();
-		assertEquals(null, entity.getWeapon()); // dropped gun
-
+		// was out of ammo but was within basic attack range
+		assertEquals(victim.getMaxLifePoints() - (range1Damage + entity.getAttackStrength()), victim.getLifePoints());
 	}
 
 	/**
 	 * LAB1 TESTS
+	 * 
 	 */
 
 	/**
