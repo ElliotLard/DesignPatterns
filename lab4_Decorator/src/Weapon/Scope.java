@@ -8,7 +8,7 @@ public class Scope extends Attachment{
 	
 	public int calculateDamage(int distance)
 	{
-		return (int) ((double)base.calculateDamage(distance) * ((1 + (base.range + 10) - distance)/(base.range + 10)));
+		return (int) ((double)base.calculateDamage(distance) * ((double)(1 + (double)(base.range + 10) - distance)/(double)(base.range + 10)));
 	}
 
 }
