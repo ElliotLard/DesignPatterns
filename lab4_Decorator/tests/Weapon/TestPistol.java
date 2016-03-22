@@ -36,8 +36,7 @@ public class TestPistol {
 		GenericWeapon p = new Pistol(); // Create pistol
 		Attachment s = new Scope(p); // Create Scope
 		
-		int damage = p.calculateDamage(13) + s.calculateDamage(13); // Adds return of calculcateDamage. Stores in damage.
-		assertEquals(9, damage); // Result should be 3 + 6 = 9
+		assertEquals(9, s.calculateDamage(13)); 
 	}
 	
 	/**
@@ -48,10 +47,9 @@ public class TestPistol {
 	{
 		GenericWeapon p = new Pistol(); // Create pistol
 		Attachment s = new Scope(p); // Create first scope
-		Attachment s1 = new Scope(p); // Create second scope
+		Attachment s1 = new Scope(s); // Create second scope
 		
-		int damage = p.calculateDamage(13) + s.calculateDamage(13) + s1.calculateDamage(13); // Adds three variables
-		assertEquals(12, damage); // Result should be 6 + 3 + 3 = 12
+		assertEquals(14, s1.calculateDamage(13)); 
 	}
 	
 	/**
@@ -62,10 +60,10 @@ public class TestPistol {
 	{
 		GenericWeapon p = new Pistol(); // Create pistol
 		Attachment s = new Scope(p); // Create Scope
-		Attachment st = new Stabilizer(p); // Create Stabilizer
+		Attachment st = new Stabilizer(s); // Create Stabilizer
 		
-		int damage = p.calculateDamage(13) + s.calculateDamage(13) + st.calculateDamage(13); // Adds three variables
-		assertEquals(16, damage); // Results should be 6 + 3 + 7 = 16
+	
+		assertEquals(11, st.calculateDamage(13));
 	}
 	
 	/**
@@ -76,10 +74,10 @@ public class TestPistol {
 	{
 		GenericWeapon p = new Pistol(); // Create Pistol
 		Attachment s = new Scope(p); // Create Scope
-		Attachment pb = new PowerBooster(p); // Create Power Booster
+		Attachment pb = new PowerBooster(s); // Create Power Booster
 		
-		int damage = p.calculateDamage(13) + s.calculateDamage(13) + pb.calculateDamage(13); // Adds three variables
-		assertEquals(21, damage); // Result should be 6 + 3 + 12 = 21
+		
+		assertEquals(18, pb.calculateDamage(13));
 	}
 }
 
