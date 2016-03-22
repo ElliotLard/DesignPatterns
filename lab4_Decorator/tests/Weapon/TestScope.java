@@ -8,6 +8,7 @@ public class TestScope
 {
 	/**
 	 * Scope Test for Lab 4
+	 * @author Christopher Wilson
 	 */
 	
 	/**
@@ -25,6 +26,6 @@ public class TestScope
 		 * Adding that to our scope damage calculation we should
 		 * end up with a value of 3
 		 */
-		assertEquals(3, s.calculateDamage(13));
+		assertEquals(9, s.calculateDamage(13));
 	}
 }

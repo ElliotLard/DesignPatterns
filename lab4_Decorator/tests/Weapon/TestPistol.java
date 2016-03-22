@@ -10,6 +10,7 @@ public class TestPistol {
 	
 	/**
 	 * Lab 4 tests for Pistol
+	 * @author Christopher Wilson
 	 */
 
 	

@@ -1,6 +1,11 @@
 package Weapon;
 
 public class Scope extends Attachment{
+	
+	/**
+	 * Lab 4 Pistol
+	 * @author Christopher Wilson
+	 */
 
 	public Scope(GenericWeapon w) {
 		super(w);
