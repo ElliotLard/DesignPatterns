@@ -25,5 +25,5 @@ import recovery.*;
 
 public class AllGameTests
 {
-
+	
 }
