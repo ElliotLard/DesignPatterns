@@ -8,7 +8,7 @@ public class TestPlasmaCannon
 {
 
 	@Test
-	public void testChainGunMaxRange()
+	public void testPlasmaCannon()
 	{
 		GenericWeapon p = new PlasmaCannon();
 		assertEquals(50, p.shoot(20));

@@ -28,4 +28,17 @@ public class TestScope
 		 */
 		assertEquals(9, s.calculateDamage(13));
 	}
+	
+	/**
+	 * Tests to make sure damage is correctly calculated with two scopes on a pistol
+	 */
+	@Test
+	public void testPistolScopeAndScope()
+	{
+		GenericWeapon p = new Pistol(); // Create pistol
+		Attachment s = new Scope(p); // Create first scope
+		Attachment s1 = new Scope(s); // Create second scope
+		
+		assertEquals(14, s1.calculateDamage(13)); 
+	}
 }
