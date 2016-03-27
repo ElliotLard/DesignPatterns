@@ -1,3 +1,5 @@
+//Author: Aaron Gerber
+
 package Weapon;
 
 import static org.junit.Assert.*;
