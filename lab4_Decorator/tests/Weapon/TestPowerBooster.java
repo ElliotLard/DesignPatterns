@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class TestPowerBooster
 {
+	
 	@Test
 	public void testPowerBoosterrWithPlasmaCannon()
 	{
@@ -17,6 +18,7 @@ public class TestPowerBooster
 		assertEquals(100, pb.shoot(20));
 	}
 
+	//Testing a double up on the power booster
 	@Test
 	public void testPowerBoosterWithPowerBoosterWithPlasmaCannon()
 	{
@@ -26,7 +28,34 @@ public class TestPowerBooster
 
 		assertEquals(200, pb2.calculateDamage(20));
 	}
+	
+	//Test the power booster being coupled with the scope
+	@Test
+	public void testPowerBoosterWithScope()
+	{
+		GenericWeapon p = new PlasmaCannon();
+		Attachment pb = new PowerBooster(p);
+		Attachment scope = new Scope(pb);
+		
+		assertEquals(scope.calculateDamage(30), 100);
+		
+		assertEquals(scope.calculateDamage(20), 133);
+		
+		assertEquals(scope.calculateDamage(10), 166);
+		
+		assertEquals(scope.calculateDamage(0), 200);
+	}
 
+	@Test
+	public void testPowerBoosterwithStabilizer()
+	{
+		GenericWeapon p = new PlasmaCannon();
+		Attachment pb = new PowerBooster(p);
+		Attachment stabilize = new Stabilizer(pb);
+		
+		assertEquals(stabilize.calculateDamage(10), 125);
+	}
+	
 	@Test
 	public void testShotPower()
 	{
