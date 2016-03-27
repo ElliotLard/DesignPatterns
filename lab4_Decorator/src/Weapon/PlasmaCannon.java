@@ -6,7 +6,7 @@ public class PlasmaCannon extends GenericWeapon
 {
 	public PlasmaCannon()
 	{
-		//Inputs the values of a plasma cannon
+		//Inputs the base values of a plasma cannon
 		super(50, 20, 1, 4);
 	}
 

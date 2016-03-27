@@ -7,6 +7,7 @@ public class PowerBooster extends Attachment
 	
 	public PowerBooster(GenericWeapon w)
 	{
+		//Uses the base initialization
 		super(w);
 	}
 
