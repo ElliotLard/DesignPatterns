@@ -10,6 +10,8 @@ public class TestStabilizer
 	/**
 	 * LAB4 TESTS author Elliot Lard
 	 */
+	
+	//tests the stabilizer + chaingun does proper damage
 	@Test
 	public void testStabilizerWithChaingun()
 	{
@@ -19,6 +21,7 @@ public class TestStabilizer
 		assertEquals(18, s.calculateDamage(30));
 	}
 
+	//tests the stabilizer + stabilizer + chaingun does proper damage
 	@Test
 	public void testStabilizerWithStabilizerWithChaingun()
 	{
@@ -28,7 +31,7 @@ public class TestStabilizer
 
 		assertEquals(22, s2.calculateDamage(30));
 	}
-
+	//tests the reload functionality of the stabilizer
 	@Test
 	public void testReload()
 	{
@@ -44,6 +47,21 @@ public class TestStabilizer
 		}
 		assertEquals(s1.getMaxAmmo(), s1.getAmmo());
 
+	}
+	
+	/**
+	 * Another damage test using Scope and Stabilizer
+	 * @author Christopher Wilson
+	 */
+	@Test
+	public void testPistolScopeAndStabalizer()
+	{
+		GenericWeapon p = new Pistol(); // Create pistol
+		Attachment s = new Scope(p); // Create Scope
+		Attachment st = new Stabilizer(s); // Create Stabilizer
+		
+	
+		assertEquals(11, st.calculateDamage(13));
 	}
 
 }
